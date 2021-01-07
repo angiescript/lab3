@@ -17,6 +17,8 @@ let m10 = document.getElementById("m10");
 
 document.addEventListener("DOMContentLoaded", (e) => {
   let inputfield = document.getElementById("search");
+let dataList = document.getElementById("movies");
+
 
   inputfield.addEventListener("input", () => {
     if (inputfield.value.length >= 3) {
@@ -25,10 +27,17 @@ document.addEventListener("DOMContentLoaded", (e) => {
           return resp.json();
         })
         .then((data) => {
-          for (let movie of data.Search) {
+            let option;
+          
+           for (let movie of data.Search) {
             console.log(movie.Title);
             m1.innerHTML = `${movie.Title}`;
-          }
+            }
+            for (let i = 0; i < data.Search.length; i++) {
+                option = document.createElement('option');
+                  option.text = data.Search[i].Title;
+                  dataList.add(option);
+              }    
         });
       // .catch((error) => {
       //   m1.innerHTML(`No movie found`);
