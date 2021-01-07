@@ -22,10 +22,11 @@ let dataList = document.getElementById("movies");
               console.dir(data)
             //if (data.Response == "False") {
                 if(!data.Search){
-                console.log("inga filmer hittatdes")
-                option = document.createElement('option');
-                option.value = "Inga filmer hittades: " + inputfield.value;
-                  dataList.appendChild(option);
+                  document.getElementById("error-txt").innerHTML = "Inga filmer hittades"
+                // console.log("inga filmer hittatdes")
+                // option = document.createElement('option');
+                // option.value = "Inga filmer hittades: " + inputfield.value;
+                //   dataList.appendChild(option);
             }
             console.log("2")
             if (data.Search && data.Search.length >10) {
