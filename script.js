@@ -6,48 +6,52 @@ const apikey = "4831f8f1";
 
 document.addEventListener("DOMContentLoaded", (e) => {
   let inputfield = document.getElementById("movie");
-let dataList = document.getElementById("movies");
-
+  let dataList = document.getElementById("movies");
+  let noResult = document.getElementById("error-txt");
 
   inputfield.addEventListener("input", () => {
+    noResult.classList.add("hidden");
+
+    while (dataList.firstChild) {
+      dataList.removeChild(dataList.lastChild);
+    }
+
     if (inputfield.value.length >= 3) {
       fetch(`http://www.omdbapi.com/?s=${inputfield.value}*&apikey=${apikey}&`)
         .then((resp) => {
           return resp.json();
         })
         .then((data) => {
-            while (dataList.firstChild) {
-                dataList.removeChild(dataList.lastChild);
-              }
-              console.dir(data)
-            //if (data.Response == "False") {
-                if(!data.Search){
-                  document.getElementById("error-txt").innerHTML = "Inga filmer hittades"
-                // console.log("inga filmer hittatdes")
-                // option = document.createElement('option');
-                // option.value = "Inga filmer hittades: " + inputfield.value;
-                //   dataList.appendChild(option);
+          while (dataList.firstChild) {
+            dataList.removeChild(dataList.lastChild);
+          }
+          console.dir(data);
+          //if (data.Response == "False") {
+          if (!data.Search) {
+            noResult.classList.remove("hidden");
+            // console.log("inga filmer hittatdes")
+            // option = document.createElement('option');
+            // option.value = "Inga filmer hittades: " + inputfield.value;
+            //   dataList.appendChild(option);
+          }
+          console.log("2");
+          if (data.Search && data.Search.length > 10) {
+            data.Search = data.Search.slice(0, 10);
+          }
+          console.log("3");
+          if (data.Search) {
+            for (let i = 0; i < data.Search.length; i++) {
+              option = document.createElement("option");
+              option.value = data.Search[i].Title;
+              dataList.appendChild(option);
             }
-            console.log("2")
-            if (data.Search && data.Search.length >10) {
-                data.Search = data.Search.slice(0,10);
-            }
-            console.log("3")
-            if (data.Search) {
-                for (let i = 0; i < data.Search.length; i++) {
-                    option = document.createElement('option');
-                    option.value = data.Search[i].Title;
-                    dataList.appendChild(option);
-                }   
-            }
-          
-             
+          }
         })
-        
-         .catch((error) => {
-         console.log(`${error}`)
-        //console.error(`${error} No movie found`);
-      });
+
+        .catch((error) => {
+          console.log(`${error}`);
+          //console.error(`${error} No movie found`);
+        });
     }
 
     //console.log(inputfield.value)
