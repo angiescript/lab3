@@ -1,3 +1,8 @@
+/* TODO:
+1. Visa upp 10 första resultatens titlar i <p>-taggarna
+2. Om vi inte får några träffar ska det stå "inga träffar" i sökresultat med catch. Hantera catch.
+3. Om användaren klickar på ett resultat - visa upp mer info i ny div. Göra musen till "click" på dessa. */
+
 const apikey = "4831f8f1";
 
 document.addEventListener("DOMContentLoaded", (e) => {
@@ -11,10 +16,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
             })
             .then(data => {
             for (let movie of data.Search) {
-                console.log(movie.Title)
+              console.log(movie.Title)
             }
             
-        })
+            })
+            .catch(error => {
+                console.error(`${error} 💥💥💥`);
+                //renderError(`Something went wrong! ${err.message}. Try again!`)
+            })
         }
         
         
