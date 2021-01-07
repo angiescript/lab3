@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles.css" rel="stylesheet" />
     <title>Labb 3: Grupp 4</title>
-</head>
-<body>
-    <label>Sök efter filmen här:</label><br>
-    <input type="text" id="search"><br>
-    
+  </head>
+  <body>
+    <label>Sök efter filmen här:</label><br />
+    <input type="text" id="search" /><br />
+
     <div class="results">
-        <p id="m1"></p>
-        <p id="m2"></p>
-        <p id="m3"></p>
-        <p id="m4"></p>
-        <p id="m5"></p>
-        <p id="m6"></p>
-        <p id="m7"></p>
-        <p id="m8"></p>
-        <p id="m9"></p>
-        <p id="m10"></p>
+      <p id="m1"></p>
+      <p id="m2"></p>
+      <p id="m3"></p>
+      <p id="m4"></p>
+      <p id="m5"></p>
+      <p id="m6"></p>
+      <p id="m7"></p>
+      <p id="m8"></p>
+      <p id="m9"></p>
+      <p id="m10"></p>
     </div>
 
+
+
+    <input list="movies" name="movie" id="movie" />
+    <datalist id="movies">
+      <!-- <option id="m1" value=""></option>
+      <option idvalue=""></option>
+      <option value=""></option>
+      <option value=""></option>
+      <option value=""></option> -->
+    </datalist>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
