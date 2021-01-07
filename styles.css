@@ -5,3 +5,13 @@
 #error-txt {
   background-color: red;
 }
+
+#info {
+  height: auto;
+  width: 500px;
+  border: 1px solid black;
+}
+
+#movies > p {
+  cursor: pointer;
+}
