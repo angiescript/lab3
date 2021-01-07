@@ -1,22 +1,11 @@
 /* TODO:
-1. Visa upp 10 första resultatens titlar i <p>-taggarna
-2. Om vi inte får några träffar ska det stå "inga träffar" i sökresultat med catch. Hantera catch.
-3. Om användaren klickar på ett resultat - visa upp mer info i ny div. Göra musen till "click" på dessa. */
+1. Om vi inte får några träffar ska det stå "inga träffar" i sökresultat med catch. Hantera catch.
+2. Om användaren klickar på ett resultat - visa upp mer info i ny div. Göra musen till "click" på dessa. */
 
 const apikey = "4831f8f1";
-let m1 = document.getElementById("m1");
-let m2 = document.getElementById("m2");
-let m3 = document.getElementById("m3");
-let m4 = document.getElementById("m4");
-let m5 = document.getElementById("m5");
-let m6 = document.getElementById("m6");
-let m7 = document.getElementById("m7");
-let m8 = document.getElementById("m8");
-let m9 = document.getElementById("m9");
-let m10 = document.getElementById("m10");
 
 document.addEventListener("DOMContentLoaded", (e) => {
-  let inputfield = document.getElementById("search");
+  let inputfield = document.getElementById("movie");
 let dataList = document.getElementById("movies");
 
 
@@ -27,22 +16,37 @@ let dataList = document.getElementById("movies");
           return resp.json();
         })
         .then((data) => {
-            let option;
-          
-           for (let movie of data.Search) {
-            console.log(movie.Title);
-            m1.innerHTML = `${movie.Title}`;
-            }
-            for (let i = 0; i < data.Search.length; i++) {
+            while (dataList.firstChild) {
+                dataList.removeChild(dataList.lastChild);
+              }
+              console.dir(data)
+            //if (data.Response == "False") {
+                if(!data.Search){
+                console.log("inga filmer hittatdes")
                 option = document.createElement('option');
-                  option.text = data.Search[i].Title;
-                  dataList.add(option);
-              }    
-        });
-      // .catch((error) => {
-      //   m1.innerHTML(`No movie found`);
-      //   console.error(`${error} No movie found`);
-      // });
+                option.value = "Inga filmer hittades: " + inputfield.value;
+                  dataList.appendChild(option);
+            }
+            console.log("2")
+            if (data.Search && data.Search.length >10) {
+                data.Search = data.Search.slice(0,10);
+            }
+            console.log("3")
+            if (data.Search) {
+                for (let i = 0; i < data.Search.length; i++) {
+                    option = document.createElement('option');
+                    option.value = data.Search[i].Title;
+                    dataList.appendChild(option);
+                }   
+            }
+          
+             
+        })
+        
+         .catch((error) => {
+         console.log(`${error}`)
+        //console.error(`${error} No movie found`);
+      });
     }
 
     //console.log(inputfield.value)
