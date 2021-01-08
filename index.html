@@ -4,26 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"/>
     <link href="styles.css" rel="stylesheet" />
     <title>Labb 3: Grupp 4, Filmsökning</title>
   </head>
   <body>
-    <div class="gridContainer">
-      <h1>Filmsökning</h1>
-      <div class="searchArea">
-        <label>Sök efter filmen här:</label><br />
 
-        <input type="text" id="inputSearch" />
+    <!-- Grid container starts -->
+    <div class="gridContainer">
+      
+      <h1>Filmsökning</h1>
+      
+      <!-- Search Area starts -->
+      <div class="searchArea">
+        <label>Sök efter filmen här:</label><br/>
+        <input type="text" id="inputSearch"/>
+        
         <p id="error-txt" class="hidden">Inga filmer hittades</p>
 
         <div id="searchResults"></div>
       </div>
+      <!-- Search Area ends -->
 
+      <!-- Infobox starts -->
       <div class="hidden" id="infoBox"></div>
+      <!-- Infobox ends -->
+    
     </div>
     <!-- Grid container ends -->
 

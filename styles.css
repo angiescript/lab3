@@ -1,3 +1,4 @@
+/* Generell styling för hela dokumentet */
 * {
   margin: 0;
   padding: 0;
@@ -15,6 +16,11 @@ body {
   line-height: 1.8em;
 }
 
+.hidden {
+  display: none;
+}
+
+/* Styling för vår gridContainer som innehåller allt content på sidan */
 .gridContainer {
   margin: 10px;
   display: grid;
@@ -22,11 +28,13 @@ body {
   grid-gap: 1em;
 }
 
+/* Styling för rubriken*/
 h1 {
   grid-area: 1/2/1/-1;
   padding-top: 1em;
 }
 
+/* Styling för div:en searchArea som innehåller labeln, inputfältet och de <p>-taggar som diven innehåller vid sökning */
 .searchArea {
   margin-top: 20px;
   grid-area: 2/2/3/6;
@@ -36,10 +44,6 @@ h1 {
   font-weight: bold;
 }
 
-.hidden {
-  display: none;
-}
-
 #error-txt {
   font-weight: bold;
   color: rgb(224, 13, 13);
@@ -47,11 +51,39 @@ h1 {
   font-style: italic;
 }
 
+.errorInfo {
+  font-weight: bold;
+  color: rgb(224, 13, 13);
+  font-style: italic;
+}
+
+#inputSearch {
+  padding: 12px 5px;
+  margin: 8px 0px;
+  font-size: 1em;
+  font-family: "Roboto", sans-serif;
+  width: 400px;
+}
+
+#searchResults {
+  box-shadow: 0px 5px 15px 0px #3f3f3f;
+}
+
+#searchResults > p {
+  cursor: pointer;
+  background-color: rgb(141, 157, 170, 0.5);
+  padding-left: 5px;
+}
+
+#searchResults > p:hover {
+  background-color: rgba(114, 131, 145, 0.5);
+  font-weight: bold;
+}
+
+/* Styling för div:en infoBox som innehåller informationen om en specifik film */
 #infoBox {
   grid-area: 2 / 7 /3/12;
   height: auto;
-  /* display: flex;
-  flex-direction: column; */
   background-color: rgba(102, 113, 122, 0.5);
   box-shadow: 0px 5px 15px 0px #3f3f3f;
   padding: 0px 10px 10px 10px;
@@ -78,33 +110,4 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 15px;
-}
-
-#searchResults {
-  box-shadow: 0px 5px 15px 0px #3f3f3f;
-}
-
-#searchResults > p {
-  cursor: pointer;
-  background-color: rgb(141, 157, 170, 0.5);
-  padding-left: 5px;
-}
-
-#searchResults > p:hover {
-  background-color: rgba(114, 131, 145, 0.5);
-  font-weight: bold;
-}
-
-#inputSearch {
-  padding: 12px 5px;
-  margin: 8px 0px;
-  font-size: 1em;
-  font-family: "Roboto", sans-serif;
-  width: 400px;
-}
-
-.errorInfo {
-  font-weight: bold;
-  color: rgb(224, 13, 13);
-  font-style: italic;
 }
