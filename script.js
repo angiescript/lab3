@@ -1,6 +1,8 @@
 /* TODO:
 1. Catch?
-2. Om användaren klickar på ett resultat - visa upp mer info i ny div. Göra musen till "click" på dessa. */
+2. Ta bort filmer i diven som redan ligger i infobox när man gör en ny sökning ELLER klickar på en ny film.
+3. Classer?
+4. Styla allt. */
 
 const apikey = "4831f8f1";
 
@@ -12,8 +14,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
  
 
   inputfield.addEventListener("input", (e) => {
-
-    //TA BORT EV FILMER I DIVEN SOM REDAN LIGGER SPARADE  
     
     noResult.classList.add("hidden");
 
@@ -48,9 +48,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
               moviep.setAttribute(`id`, `movie${i+1}`)
               moviep.innerHTML = data.Search[i].Title;
               datadiv.appendChild(moviep);
-              //console.log(moviep)
-
-              
 
             }
           }
@@ -62,16 +59,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
           for (let i=0; i < moviearray.length; i++) {
             moviearray[i].addEventListener("click", (e) => {
 
-              //TA BORT NUVARANDE DIV INNAN MAN HÄMTAR EN NY FILM
-
               let imdb_id = data.Search[i].imdbID
-              //console.log(`Clicked on: ${data.Search[i].imdbID}`)
               fetch(`http://www.omdbapi.com/?i=${imdb_id}&apikey=${apikey}&`)
               .then((resp) => {
                 return resp.json();
               })
               .then(data => {
-                //console.log(data.Plot)
                 infobox.classList.remove("hidden");
 
                 let poster = document.createElement("img");
