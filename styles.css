@@ -27,12 +27,12 @@ h1 {
   padding-top: 1em;
 }
 
-.searchMovie {
+.searchArea {
   margin-top: 20px;
   grid-area: 2/2/3/6;
 }
 
-.searchMovie > label {
+.searchArea > label {
   font-weight: bold;
 }
 
@@ -47,7 +47,7 @@ h1 {
   font-style: italic;
 }
 
-#info {
+#infoBox {
   grid-area: 2 / 7 /3/12;
   height: auto;
   /* display: flex;
@@ -57,36 +57,54 @@ h1 {
   padding: 0px 10px 10px 10px;
 }
 
-#info > p > span {
+#infoBox > p > span {
   font-weight: bold;
 }
 
-#info > img {
+#infoBox > p > a > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 30px;
+  opacity: 0.85;
+}
+
+#infoBox > p > a > img:hover {
+  opacity: 1;
+}
+
+#infoBox > img {
   display: block;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 15px;
 }
 
-#movies {
+#searchResults {
   box-shadow: 0px 5px 15px 0px #3f3f3f;
 }
 
-#movies > p {
+#searchResults > p {
   cursor: pointer;
   background-color: rgb(141, 157, 170, 0.5);
   padding-left: 5px;
 }
 
-#movies > p:hover {
+#searchResults > p:hover {
   background-color: rgba(114, 131, 145, 0.5);
   font-weight: bold;
 }
 
-#movie {
+#inputSearch {
   padding: 12px 5px;
   margin: 8px 0px;
   font-size: 1em;
   font-family: "Roboto", sans-serif;
   width: 400px;
+}
+
+.errorInfo {
+  font-weight: bold;
+  color: rgb(224, 13, 13);
+  font-style: italic;
 }
