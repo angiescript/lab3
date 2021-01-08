@@ -1,17 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(to bottom right, #eef2f3, #8e9eab);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-size: 1.3em;
+  font-family: "Roboto", sans-serif;
+  min-height: 1080px;
+  line-height: 1.8em;
+}
+
+.gridContainer {
+  margin: 10px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1em;
+}
+
+h1 {
+  grid-area: 1/2/1/-1;
+  padding-top: 1em;
+}
+
+.searchMovie {
+  margin-top: 20px;
+  grid-area: 2/2/3/6;
+}
+
+.searchMovie > label {
+  font-weight: bold;
+}
+
 .hidden {
   display: none;
 }
 
 #error-txt {
-  background-color: red;
+  font-weight: bold;
+  color: rgb(224, 13, 13);
+  width: 400px;
+  font-style: italic;
 }
 
 #info {
+  grid-area: 2 / 7 /3/12;
   height: auto;
-  width: 500px;
-  border: 1px solid black;
+  /* display: flex;
+  flex-direction: column; */
+  background-color: rgba(102, 113, 122, 0.5);
+  box-shadow: 0px 5px 15px 0px #3f3f3f;
+  padding: 0px 10px 10px 10px;
+}
+
+#info > p > span {
+  font-weight: bold;
+}
+
+#info > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 15px;
+}
+
+#movies {
+  box-shadow: 0px 5px 15px 0px #3f3f3f;
 }
 
 #movies > p {
   cursor: pointer;
+  background-color: rgb(141, 157, 170, 0.5);
+  padding-left: 5px;
+}
+
+#movies > p:hover {
+  background-color: rgba(114, 131, 145, 0.5);
+  font-weight: bold;
+}
+
+#movie {
+  padding: 12px 5px;
+  margin: 8px 0px;
+  font-size: 1em;
+  font-family: "Roboto", sans-serif;
+  width: 400px;
 }
